@@ -40,7 +40,7 @@ if (nulll) {
    console.log("The null value is falsy")
 };
 
-
+//9
 if (0 === Number) {
     console.log("The number 0 is falsy (the only true number)");
 } else {
