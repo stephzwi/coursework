@@ -1,33 +1,33 @@
 // index       0  1  2  3  4   5   6   7
-//const input = [2, 4, 6, 8, 11, 20, 15, 22] 
-//const result = []
+const input = [2, 4, 6, 8, 11, 20, 15, 22] 
+const result = []
 
 // loop over each element 
-//for (let i = 0; i < input.length; i++) {
+for (let i = 0; i < input.length; i++) 
  
    // evaluate each element => is this odd?
-//   if (input[i] % 2 === 1) {
+  if (input[i] % 2 === 1) {
    // once you have the odd element, add it to your answer  
-//    result.push(input[i])
-//   } else {
-     // if it's even, don't even worry about it. 
-//   }
+   result.push(input[i])
+   } //else {
+      ("if it's even, don't even worry about it.")
+ // }
 //};
-//console.log("hi 17")
+
 
 //With a for loop, create a JavaScript code that creates a new array in reverse order.
 
-//const glue = [1, 2, 3]
-//const paper = []
+const glue = [1, 2, 3]
+const paper = []
 
-// loop over each element
-//for (let i = glue.length - 1; i >= 0; i--) {
+//loop over each element
+for (let i = glue.length - 1; i >= 0; i--) {
     
-    // input should come out in reverse order
-//    paper.push(glue[i])
+     //input should come out in reverse order
+    paper.push(glue[i])
 
-//}
-//console.log('paper is now reverse', paper)
+}
+console.log('paper is now reverse', paper)
 
 
 
@@ -40,9 +40,6 @@
 
 //For numbers that are multiples of both 3 and 5, print "FizzBuzz" instead of the number.
 
-
-
-//jj
 
 for (let i = 1; i <= 100; i++) 
 {
@@ -63,25 +60,15 @@ for (let i = 1; i <= 100; i++)
 
 
 
+let inputb = "ukelele";
+let consonants = [];
+let vowels = [];
 
-
-
-//let input = "ukelele";
-//let consonants = [];
-//let vowels = [];
-// if you want to use a for...of loop
-// for (let letter of input) {
-//     if (["a", "e", "i", "o", "u"].includes(letter)) {
-//         vowels.push(letter);
-//     } else {
-//         consonants.push(letter);
-//     }
-// }
-//for (let i = 0; i < input.length; i++) {
-//    if (["a", "e", "i", "o", "u"].includes(input[i])) {
-//        vowels.push(input[i]);
-//    } else {
-//        consonants.push(input[i]);
-//    }
-//}
-//console.log(${input} has ${consonants.length} consonants and ${vowels.length} vowels)
+for (let i = 0; i < inputb.length; i++) {
+    if (["a", "e", "i", "o", "u"].includes(inputb[i])) {
+        vowels.push(inputb[i]);
+    } else {
+        consonants.push(inputb[i]);
+    }
+};
+console.log(`${inputb}' has ${consonants.length} consonants and ${vowels.length} vowels.`)
