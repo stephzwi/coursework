@@ -1,0 +1,14 @@
+h1 {color: crimson;font-family: cursive;}
+img {  
+    border: 2px solid green;  
+    border-radius:10px;  
+    padding:5px;
+    width: 20%; 
+    }  
+section {
+    border: 2px solid orange;  
+    border-radius:10px;  
+    padding:5px;
+    width: 20%; 
+    background-color:rgb(86, 124, 149) ;
+    }
