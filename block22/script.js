@@ -43,9 +43,10 @@ const getAllParties = async () => {
   try {
     const response = await fetch(PARTIES_API_URL);
     const parties = await response.json();
+    //receive an array of objects 
     return parties;
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 };
 
@@ -56,7 +57,7 @@ const getPartyById = async (id) => {
     const party = await response.json();
     return party;
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 };
 
@@ -102,8 +103,10 @@ const renderSinglePartyById = async (id) => {
     // create new HTML element to display party details
     const partyDetailsElement = document.createElement('div');
     partyDetailsElement.classList.add('party-details');
+    
+
     partyDetailsElement.innerHTML = `
-            <h2>${party.name}</h2>
+            <h2 class="header">${party.name}</h2>
             <p>${party.date}</p>
             <p>${party.time}</p>
             <p>${party.location}</p>
@@ -126,7 +129,10 @@ const renderSinglePartyById = async (id) => {
 
             <button class="close-button">Close</button>
         `;
-    partyContainer.appendChild(partyDetailsElement);
+    const partyElement = document.getElementById(id)
+  //  console.log(partyElement)
+  //  partyElement.classList.add(party)
+    partyContainer.appendChild(partyElement);
 
     // add event listener to close button
     const closeButton = partyDetailsElement.querySelector('.close-button');
@@ -145,23 +151,52 @@ const renderParties = async (parties) => {
     parties.forEach((party) => {
       const partyElement = document.createElement('div');
       partyElement.classList.add('party');
+      partyElement.id = party.id
       partyElement.innerHTML = `
-                <h2>${party.name}</h2>
-                <p>${party.description}</p>
-                <p>${party.date}</p>
-                <p>${party.time}</p>
-                <p>${party.location}</p>
+                <h2 class = "header">${party.name}</h2>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
                 <button class="details-button" data-id="${party.id}">See Details</button>
                 <button class="delete-button" data-id="${party.id}">Delete</button>
             `;
       partyContainer.appendChild(partyElement);
-
+      const detailsElement = document.createElement('div');
+      detailsElement.classList.add('hidden');
+      detailsElement.id = `details-${party.id}`
+      detailsElement.innerHTML = (`
+      
+      <p class = "details" >${party.description}</p>
+      <p class = "details" >${party.date}</p>
+      <p class = "details" >${party.time}</p>
+      <p class = "details" >${party.location}</p>
+    
+      <button class="closeButton" data-id="${party.id}">Close</button>`)
+      const closeButton = detailsElement.querySelector('.closeButton')
+     closeButton.addEventListener('click', async (event) => {event.preventDefault();
+      const id = event.target.dataset.id
+     const selectElement = document.getElementById(`details-${id}`)
+     selectElement.classList.add('hidden')})
+      partyContainer.appendChild(detailsElement)
+      
+      
       // see details
       const detailsButton = partyElement.querySelector('.details-button');
       detailsButton.addEventListener('click', async (event) => {
         // your code here
+        //get id from event
+        // make a div seeable
+        //make the div appear when you press see details
+        //see the details of the party 
         event.preventDefault();
-        renderSinglePartyById(party.id);
+        const id = event.target.dataset.id
+       const selectElement = document.getElementById(`details-${id}`)
+       selectElement.classList.remove('hidden')
+
+      
+
+       
       });
 
       // delete party
@@ -181,8 +216,14 @@ const renderParties = async (parties) => {
 // init function
 const init = async () => {
   // your code here
-  const parties = await getAllParties();
-  renderParties(parties);
+  try {const parties = await getAllParties();
+    renderParties(parties);
+    
+  } catch (error) {
+    console.log(error)
+    
+  }
+  
 };
 
 init();

@@ -3,3 +3,26 @@
     margin: 0;
     box-sizing: border-box;
 }
+.header{
+    color: black;
+    font-size: xx-large;
+    font-style: Arial;
+}
+.hidden {
+    display: none;
+}
+
+.details-button{
+    
+    color: black;
+    font-family: cursive;
+}
+.details{
+     color: black;
+     font-family: cursive;
+     font-size: xx-large;
+}
+.delete-button{
+    color: black;
+    font-family: cursive;
+}
